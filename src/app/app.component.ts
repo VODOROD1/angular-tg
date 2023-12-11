@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { TelegramService } from './services/telegram.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,9 @@ export class AppComponent {
 
   items = [1, 2, 3, 4, 5];
 
-  constructor() {}
+  constructor(private tgService: TelegramService) {
+    this.tgService.ready();
+  }
 
   // window.Telegram.WebApp
 }

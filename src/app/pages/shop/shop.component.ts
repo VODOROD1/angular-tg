@@ -27,14 +27,15 @@ import { ProductListComponent } from '../product-list/product-list/product-list.
 })
 
 export class ShopComponent {
-  tg = inject(TelegramService);
+  tgService = inject(TelegramService);
   productsService = inject(ProductsService);
-  mainButton = this.tg.MainButton;
+  mainButton = this.tgService.MainButton;
   productsByGroup: object;
   ProductType = ProductType;
 
   constructor() {
-    this.tg.MainButton.show();
+    this.tgService.MainButton.show();
+    this.tgService.BackButton.hide();
     this.productsByGroup = this.productsService.byGroup;
     // console.log('byGroup - ', temp);
   }

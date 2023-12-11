@@ -4,7 +4,9 @@ import { Inject, Injectable } from '@angular/core';
 interface TgButton {
   show(): void,
   hide(): void,
-  setText(): void
+  setText(): void,
+  onClick(callback): void,
+  offClick(callback): void
 }
 
 @Injectable({
@@ -22,5 +24,13 @@ export class TelegramService {
 
   get MainButton(): TgButton {
     return this.tg.MainButton;
+  }
+
+  get BackButton(): TgButton {
+    return this.tg.BackButton;
+  }
+
+  ready() {
+    this.tg.ready();
   }
 }
